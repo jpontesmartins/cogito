@@ -70,10 +70,13 @@ ul {
 
 .card-control {
     margin-top: -5px;
+    padding-top: 10px;
     padding-left: 10px;
     background-color: #56636a;
+    text-align: center;
 }
 .card-all {
+    /* border: 1px solid; */
     margin-bottom: 20px;
 }
 

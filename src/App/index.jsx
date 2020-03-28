@@ -36,6 +36,7 @@ class App extends Component {
           <div className="column1">
 
             <div className="card-all">
+
               <div className="card">
                 <div className="card-date">
                   1882
@@ -44,6 +45,13 @@ class App extends Component {
                   Nascimento de James Joyce
                 </div>
               </div>
+
+              {/* <div className="card-control">
+                <img
+                  width="150px"
+                  height="150px"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Revolutionary_Joyce_Better_Contrast.jpg/330px-Revolutionary_Joyce_Better_Contrast.jpg" />
+              </div> */}
 
             </div>
 
@@ -77,7 +85,7 @@ class App extends Component {
               zoomControl={false}
               zoom={5} center={SUL}
               onClick={this.clickOnMap}>
-              
+
               <TileLayer url={urlTileLayer} />
 
               <GeoJSON data={markers}
@@ -85,16 +93,16 @@ class App extends Component {
                 style={{ color: "#000" }}>
 
                 <MarkerDefault position={position}>
-                  <Content title="aaa"/>
+                  <Content title="aaa" />
                 </MarkerDefault>
 
                 <MarkerDefault position={positionNasc}>
-                  <Content title="Rathgar, Dublin, Nascimento"/>
+                  <Content title="Rathgar, Dublin, Nascimento" />
                 </MarkerDefault>
 
-                
+
                 <MarkerDefault position={positionZurich}>
-                  <Content title="Zurich, Morte"/>
+                  <Content title="Zurich, Morte" />
                 </MarkerDefault>
               </GeoJSON>
 
