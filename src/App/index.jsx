@@ -3,8 +3,8 @@ import React, { Component, Fragment } from "react";
 import "./styles.css";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
     };
   }
@@ -13,14 +13,21 @@ class App extends Component {
     return (
       <Fragment>
         <div className="container">
+
           <div className="column1">
-            <div className="card">
-              <div className="card-date">
-                1882
+
+            <div className="card-all">
+              <div className="card">
+                <div className="card-date">
+                  1882
+                </div>
+                <div className="card-event">
+                  Nascimento de James Joyce
+                </div>
               </div>
-              <div className="card-event">
-                Nascimento de James Joyce
-              </div>
+              {/* <div className="card-control">
+                open
+              </div> */}
             </div>
 
             <div className="card">

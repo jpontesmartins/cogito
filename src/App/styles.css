@@ -50,9 +50,8 @@ ul {
     display: grid;
     grid-template-columns: 20% 70%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     color: #000000;
-    min-width: 100px;
 }
 
 .card-date {
@@ -60,13 +59,25 @@ ul {
     margin: 5px;
     background-color: #92abb8;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .card-event {
     padding: 5px;
     margin: 5px;
     background-color: #92abb8;
+    word-wrap: break-word;
 }
+
+.card-control {
+    /* margin: 5px; */
+    background-color: #56636a;
+}
+.card-all {
+    /* border: 1px solid; */
+    margin-bottom: 20px;
+}
+
 
 .column2 {
     background-color: #CCC;
