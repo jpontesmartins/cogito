@@ -69,12 +69,16 @@ ul {
 }
 
 .card-control {
-    /* margin: 5px; */
+    margin-top: -5px;
+    padding-left: 10px;
     background-color: #56636a;
 }
 .card-all {
-    /* border: 1px solid; */
     margin-bottom: 20px;
+}
+
+.card-all :hover {
+    background-color: #DDD;
 }
 
 
