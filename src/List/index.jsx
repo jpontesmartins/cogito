@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 
-import "../App/styles.css";
+import Card from "./Card";
 
 class List extends Component {
     constructor(props) {
@@ -15,46 +15,22 @@ class List extends Component {
         return (
             <Fragment>
                 <div className="column1">
-                    <div className="card-all">
-                        <div className="card">
-                            <div className="card-date">
-                                1882
-                            </div>
-                            <div className="card-event">
-                                Nascimento de James Joyce
-                            </div>
-                        </div>
 
-                        <div className="card-control">
-                            <img
-                                width="150px"
-                                height="150px"
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Revolutionary_Joyce_Better_Contrast.jpg/330px-Revolutionary_Joyce_Better_Contrast.jpg" />
-                        </div>
+                    <Card 
+                        date="1882"
+                        event="Nascimento de James Joyce"
+                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Revolutionary_Joyce_Better_Contrast.jpg/330px-Revolutionary_Joyce_Better_Contrast.jpg"/>
 
-                    </div>
+                    <Card 
+                        date="1828"
+                        event="Nascimento de Lev Tolstoi"
+                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Revolutionary_Joyce_Better_Contrast.jpg/330px-Revolutionary_Joyce_Better_Contrast.jpg"/>
+                    
+                    <Card 
+                        date="1899"
+                        event="Nascimento de Ernest Hemingway"
+                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Revolutionary_Joyce_Better_Contrast.jpg/330px-Revolutionary_Joyce_Better_Contrast.jpg"/>
 
-                    <div className="card-all">
-                        <div className="card">
-                            <div className="card-date">
-                                1828
-                                </div>
-                            <div className="card-event">
-                                Nascimento de Lev Tolstoi
-                                </div>
-                        </div>
-                    </div>
-
-                    <div className="card-all">
-                        <div className="card">
-                            <div className="card-date">
-                                1899
-                                </div>
-                            <div className="card-event">
-                                Nascimento de Ernest Hemingway
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </Fragment>
         );

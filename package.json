@@ -33,7 +33,6 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
-    "geojson-world-map": "0.0.2",
     "leaflet": "^1.6.0",
     "react-cookie": "^4.0.3",
     "react-cookies": "^0.1.1",
@@ -42,7 +41,6 @@
     "react-router-dom": "^5.1.2",
     "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
-    "sha1": "^1.1.1",
-    "styled-components": "^5.0.1"
+    "sha1": "^1.1.1"
   }
 }
