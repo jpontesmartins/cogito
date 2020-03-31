@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from "react";
 
-import "../../App/styles.css";
-
 class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
             date: this.props.date,
             event: this.props.event,
-            image: this.props.image
+            image: this.props.image,
+            toggle: false,
+            overImage: false
         };
     }
 
@@ -18,25 +18,28 @@ class Card extends Component {
         const cardDate = "card-date";
         const cardEvent = "card-event";
         const cardControl = "card-control";
+        const cardControlOff = "card-control-off";
 
-        const { date, event, image } = this.state;
+        const { date, event, image, toggle, overImage } = this.state;
 
         return (
             <Fragment>
-                <div className={cardAll}>
+                <div className={cardAll} onClick={() => this.setState({toggle: !this.state.toggle})}>
                     <div className={card}>
                         <div className={cardDate}>
                             {date}
                             </div>
                         <div className={cardEvent}>
                             {event}
-                            </div>
+                        </div>
                     </div>
 
-                    <div className={cardControl}>
+                    <div className={toggle ? cardControl : cardControlOff}>
                         <img
-                            width="150px"
-                            height="150px"
+                            onMouseOut={() => this.setState({ overImage: !this.state.overImage })} 
+                            onMouseOver={() => this.setState({ overImage: !this.state.overImage })}
+                            width={overImage ? "270px" : "150"}
+                            height={overImage ? "270px" : "150"}
                             src={image} />
                     </div>
 
