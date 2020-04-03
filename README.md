@@ -19,11 +19,6 @@ $ npm run dev
 ```
 
 ## Acessando a aplicação
-- O servidor backend estará acessível via porta 5000
-    ```
-    http://localhost:5000/
-    ```
-
 - O frontend estará acessível via porta 8080
     ```
     http://localhost:8080/
