@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import MarkerDefault from "./MarkerDefault";
-import Content from "../App/Content";
+import Content from "./Content";
 
 class SpatialInfo extends Component {
 
