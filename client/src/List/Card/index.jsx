@@ -38,8 +38,8 @@ class Card extends Component {
                         <img
                             onMouseOut={() => this.setState({ overImage: !this.state.overImage })} 
                             onMouseOver={() => this.setState({ overImage: !this.state.overImage })}
-                            width={overImage ? "270px" : "150"}
-                            height={overImage ? "270px" : "150"}
+                            width={overImage ? "200px" : "150"}
+                            height={overImage ? "200px" : "150"}
                             src={image} />
                     </div>
 

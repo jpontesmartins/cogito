@@ -1,11 +1,8 @@
 import React, { Component, Fragment } from "react";
-import MarkerDefault from "../App/MarkerDefault";
-import Content from "../App/Content";
-
-import hash from "sha1";
 import { Map, GeoJSON, TileLayer, } from "react-leaflet";
+import hash from "sha1";
 
-import "../App/styles.css";
+import SpatialInfo from "./SpatialInfo";
 
 class BaseMap extends Component {
     constructor(props) {
@@ -23,15 +20,12 @@ class BaseMap extends Component {
         const SUL = [-27.590354384999955, -48.556835725999974];
         const SIZE = { height: "100%", width: "100%" };
         const urlTileLayer = "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png";
-        const position = [-27.587301, -48.546266];
-        const positionZurich = [47.366667, 8.55];
-        const positionNasc = [53.311667, -6.274333];
+        
         const { markers } = this.state;
 
         return (
             <Fragment>
                 <div className="map-coluna">
-
                     <Map
                         style={SIZE}
                         zoomControl={false}
@@ -44,18 +38,8 @@ class BaseMap extends Component {
                             key={hash(markers)}
                             style={{ color: "#000" }}>
 
-                            <MarkerDefault position={position}>
-                                <Content title="aaa" />
-                            </MarkerDefault>
-
-                            <MarkerDefault position={positionNasc}>
-                                <Content title="Rathgar, Dublin, Nascimento" />
-                            </MarkerDefault>
-
-
-                            <MarkerDefault position={positionZurich}>
-                                <Content title="Zurich, Morte" />
-                            </MarkerDefault>
+                            <SpatialInfo />
+                           
                         </GeoJSON>
 
                     </Map>
