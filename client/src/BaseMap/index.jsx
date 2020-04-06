@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Map, GeoJSON, TileLayer, } from "react-leaflet";
 import hash from "sha1";
+import { connect } from 'react-redux'
 
-import SpatialInfo from "./SpatialInfo";
+import MarkerDefault from "./MarkerDefault";
+import Content from "./Content";
 
 class BaseMap extends Component {
     constructor(props) {
@@ -15,6 +17,9 @@ class BaseMap extends Component {
         };
     }
 
+    componentDidUpdate(prevProps) {    }
+
+
     render() {
 
         const SUL = [-27.590354384999955, -48.556835725999974];
@@ -22,6 +27,24 @@ class BaseMap extends Component {
         const urlTileLayer = "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png";
         
         const { markers } = this.state;
+
+        let position = [53.311667, -10.174333]
+
+        const { birthLocal, deathLocal } = this.props;
+
+        let birth = {
+            coordinates: [0,0],
+            name: "Birth"
+        }
+        let death = {
+            coordinates: [10,10],
+            name: "Death"
+        };
+        
+        if (birthLocal) {
+            birth = birthLocal;
+            death = deathLocal;
+        }
 
         return (
             <Fragment>
@@ -38,7 +61,14 @@ class BaseMap extends Component {
                             key={hash(markers)}
                             style={{ color: "#000" }}>
 
-                            <SpatialInfo />
+                            {/* <SpatialInfo /> */}
+
+                            <MarkerDefault position={birth.coordinates}>
+                                <Content title={birth.name} />
+                            </MarkerDefault>
+                            <MarkerDefault position={death.coordinates}>
+                                <Content title={death.name} />
+                            </MarkerDefault>
                            
                         </GeoJSON>
 
@@ -49,4 +79,11 @@ class BaseMap extends Component {
     }
 }
 
-export default BaseMap;
+const mapStateToProps = state => ({
+    birthLocal: state.showPlaces.birthLocal,
+    deathLocal: state.showPlaces.deathLocal
+});
+
+export default connect(mapStateToProps)(BaseMap);
+
+

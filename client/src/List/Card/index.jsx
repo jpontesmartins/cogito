@@ -21,7 +21,20 @@ class Card extends Component {
 
     handleClick() {
         const { showPlaces } = this.props;
-        showPlaces('AANascimento','BBMorte');
+
+
+        //terá algum método que consulte esses dados na base
+        //ou ja estarao aqui no card e serah apenas setado aqui...
+        const birthEvent = {
+            coordinates: [53.311667, -6.174333],
+            name: "Cidade tal"
+        }
+        
+        const deathEvent = {
+            coordinates: [53.311667, -10.174333],
+            name: "Cidade outra"
+        }
+        showPlaces(birthEvent,deathEvent);
         
     }
 
