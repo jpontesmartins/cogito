@@ -1,5 +1,10 @@
 import React, { Component, Fragment } from "react";
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+
+import { showPlaces } from "../../store/actions";
+
 class Card extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +15,17 @@ class Card extends Component {
             toggle: false,
             overImage: false
         };
+
+        this.handleClick = this.handleClick.bind(this);
     }
+
+    handleClick() {
+        const { showPlaces } = this.props;
+        showPlaces('AANascimento','BBMorte');
+        
+    }
+
+    componentDidUpdate(prevProps) { }
 
     render() {
         const card = "card";
@@ -24,11 +39,11 @@ class Card extends Component {
 
         return (
             <Fragment>
-                <div className={cardAll} onClick={() => this.setState({toggle: !this.state.toggle})}>
+                <div className={cardAll} onClick={() => this.setState({ toggle: !this.state.toggle })}>
                     <div className={card}>
                         <div className={cardDate}>
                             {date}
-                            </div>
+                        </div>
                         <div className={cardEvent}>
                             {event}
                         </div>
@@ -36,8 +51,9 @@ class Card extends Component {
 
                     <div className={toggle ? cardControl : cardControlOff}>
                         <img
-                            onMouseOut={() => this.setState({ overImage: !this.state.overImage })} 
-                            onMouseOver={() => this.setState({ overImage: !this.state.overImage })}
+                            onClick={this.handleClick}
+                            // onMouseOut={() => this.setState({ overImage: !this.state.overImage })}
+                            // onMouseOver={() => this.setState({ overImage: !this.state.overImage })}
                             width={overImage ? "200px" : "150"}
                             height={overImage ? "200px" : "150"}
                             src={image} />
@@ -49,4 +65,11 @@ class Card extends Component {
     }
 }
 
-export default Card;
+const mapStateToProps = state => ({
+    birthLocal: state.showPlaces.birthLocal,
+    deathLocal: state.showPlaces.deathLocal
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ showPlaces }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
