@@ -24,7 +24,7 @@ class Card extends Component {
 
 
         //terá algum método que consulte esses dados na base
-        //ou ja estarao aqui no card e serah apenas setado aqui...
+        //ou ja estarao aqui no card e serah apenas setado na store..
         const birthEvent = {
             coordinates: [53.311667, -6.174333],
             name: "Cidade tal"
@@ -52,8 +52,8 @@ class Card extends Component {
 
         return (
             <Fragment>
-                <div className={cardAll} onClick={() => this.setState({ toggle: !this.state.toggle })}>
-                    <div className={card}>
+                <div className={cardAll} >
+                    <div className={card} onClick={() => this.setState({ toggle: !this.state.toggle })}>
                         <div className={cardDate}>
                             {date}
                         </div>
