@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-import { showPlaces } from "../../store/actions";
+import { showBirthAndDeathPlaces } from "../../store/actions";
 import { cardStyles } from "./classNameStyles";
 
 
@@ -22,28 +22,28 @@ class Card extends Component {
     }
 
     handleClick() {
-        const { showPlaces } = this.props;
+        const { showBirthAndDeathPlaces } = this.props;
+        const { birthPlace, deathPlace } = this.getBirthAndDeathPlaces();
+        showBirthAndDeathPlaces(birthPlace, deathPlace);
 
+    }
 
-        //terá algum método que consulte esses dados na base
-        //ou ja estarao aqui no card e serah apenas setado na store..
-        const birthEvent = {
+    getBirthAndDeathPlaces() {
+        const birthPlace = {
             coordinates: [53.311667, -6.174333],
             name: "Cidade tal"
-        }
-        
-        const deathEvent = {
+        };
+        const deathPlace = {
             coordinates: [53.311667, -10.174333],
             name: "Cidade outra"
-        }
-        showPlaces(birthEvent,deathEvent);
-        
+        };
+        return { birthPlace, deathPlace };
     }
 
     componentDidUpdate(prevProps) { }
 
     render() {
-        const { card, cardAll, cardDate, cardEvent, cardControl, cardControlOff} = cardStyles;
+        const { card, cardAll, cardDate, cardEvent, cardControl, cardControlOff } = cardStyles;
         const { date, event, image, toggle, overImage } = this.state;
 
         return (
@@ -61,8 +61,6 @@ class Card extends Component {
                     <div className={toggle ? cardControl : cardControlOff}>
                         <img
                             onClick={this.handleClick}
-                            // onMouseOut={() => this.setState({ overImage: !this.state.overImage })}
-                            // onMouseOver={() => this.setState({ overImage: !this.state.overImage })}
                             width={overImage ? "200px" : "150"}
                             height={overImage ? "200px" : "150"}
                             src={image} />
@@ -79,6 +77,6 @@ const mapStateToProps = state => ({
     deathLocal: state.showPlaces.deathLocal
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ showPlaces }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ showBirthAndDeathPlaces }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

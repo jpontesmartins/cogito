@@ -1,6 +1,6 @@
-export const showPlaces = (birthLocal, deathLocal) => (
+export const showBirthAndDeathPlaces = (birthLocal, deathLocal) => (
   {
-    type: 'SHOW_PLACES',
+    type: 'SHOW_BIRTH_AND_DEATH_PLACES',
     payload: {
       birthLocal,
       deathLocal

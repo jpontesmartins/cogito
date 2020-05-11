@@ -5,8 +5,8 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'SHOW_PLACES':
-            console.log('SHOW_PLACES');
+        case 'SHOW_BIRTH_AND_DEATH_PLACES':
+            console.log('SHOW_BIRTH_AND_DEATH_PLACES');
             console.log(action);
             const newState = {
                 ...state,
