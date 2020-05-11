@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
 import { showPlaces } from "../../store/actions";
+import { cardStyles } from "./classNameStyles";
+
 
 class Card extends Component {
     constructor(props) {
@@ -41,13 +43,7 @@ class Card extends Component {
     componentDidUpdate(prevProps) { }
 
     render() {
-        const card = "card";
-        const cardAll = "card-all";
-        const cardDate = "card-date";
-        const cardEvent = "card-event";
-        const cardControl = "card-control";
-        const cardControlOff = "card-control-off";
-
+        const { card, cardAll, cardDate, cardEvent, cardControl, cardControlOff} = cardStyles;
         const { date, event, image, toggle, overImage } = this.state;
 
         return (
