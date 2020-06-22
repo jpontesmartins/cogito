@@ -1,5 +1,12 @@
 import React, { Component, Fragment } from "react";
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+
+import { showBirthAndDeathPlaces } from "../../store/actions";
+import { cardStyles } from "./classNameStyles";
+
+
 class Card extends Component {
     constructor(props) {
         super(props);
@@ -10,25 +17,42 @@ class Card extends Component {
             toggle: false,
             overImage: false
         };
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    render() {
-        const card = "card";
-        const cardAll = "card-all";
-        const cardDate = "card-date";
-        const cardEvent = "card-event";
-        const cardControl = "card-control";
-        const cardControlOff = "card-control-off";
+    handleClick() {
+        const { showBirthAndDeathPlaces } = this.props;
+        const { birthPlace, deathPlace } = this.getBirthAndDeathPlaces();
+        showBirthAndDeathPlaces(birthPlace, deathPlace);
 
+    }
+
+    getBirthAndDeathPlaces() {
+        const birthPlace = {
+            coordinates: [53.311667, -6.174333],
+            name: "Cidade tal"
+        };
+        const deathPlace = {
+            coordinates: [53.311667, -10.174333],
+            name: "Cidade outra"
+        };
+        return { birthPlace, deathPlace };
+    }
+
+    componentDidUpdate(prevProps) { }
+
+    render() {
+        const { card, cardAll, cardDate, cardEvent, cardControl, cardControlOff } = cardStyles;
         const { date, event, image, toggle, overImage } = this.state;
 
         return (
             <Fragment>
-                <div className={cardAll} onClick={() => this.setState({toggle: !this.state.toggle})}>
-                    <div className={card}>
+                <div className={cardAll} >
+                    <div className={card} onClick={() => this.setState({ toggle: !this.state.toggle })}>
                         <div className={cardDate}>
                             {date}
-                            </div>
+                        </div>
                         <div className={cardEvent}>
                             {event}
                         </div>
@@ -36,8 +60,7 @@ class Card extends Component {
 
                     <div className={toggle ? cardControl : cardControlOff}>
                         <img
-                            onMouseOut={() => this.setState({ overImage: !this.state.overImage })} 
-                            onMouseOver={() => this.setState({ overImage: !this.state.overImage })}
+                            onClick={this.handleClick}
                             width={overImage ? "200px" : "150"}
                             height={overImage ? "200px" : "150"}
                             src={image} />
@@ -49,4 +72,11 @@ class Card extends Component {
     }
 }
 
-export default Card;
+const mapStateToProps = state => ({
+    birthLocal: state.showPlaces.birthLocal,
+    deathLocal: state.showPlaces.deathLocal
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ showBirthAndDeathPlaces }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

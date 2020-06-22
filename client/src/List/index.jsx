@@ -17,19 +17,24 @@ class List extends Component {
             <Fragment>
                 <div className="column1">
                     <Card
-                        date="1882"
-                        event="Nascimento de James Joyce"
-                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Revolutionary_Joyce_Better_Contrast.jpg/330px-Revolutionary_Joyce_Better_Contrast.jpg" />
+                        date="1791"
+                        event="Charles Babbage"
+                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Charles_Babbage_-_1860.jpg/687px-Charles_Babbage_-_1860.jpg" />
 
                     <Card
-                        date="1828"
-                        event="Nascimento de Lev Tolstoi"
-                        image="https://www.portaldaliteratura.com/assets/files_autores/1740.jpg" />
+                        date="1815"
+                        event="Ada Lovelace"
+                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ada_lovelace.jpg/300px-Ada_lovelace.jpg" />
 
                     <Card
-                        date="1899"
-                        event="Nascimento de Ernest Hemingway"
-                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ErnestHemingway.jpg/800px-ErnestHemingway.jpg" />
+                        date="1860"
+                        event="Herman Hollerith"
+                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Hollerith.jpg/330px-Hollerith.jpg"/>
+
+                    <Card
+                        date="1912"
+                        event="Alan Turing"
+                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Alan_Turing_Aged_16.jpg/660px-Alan_Turing_Aged_16.jpg"/>
 
                 </div>
             </Fragment>
